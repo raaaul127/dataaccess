@@ -1,0 +1,20 @@
+CREATE TABLE `magazin`.`produse` (`idprodus` INT UNSIGNED NOT NULL AUTO_INCREMENT , `numep` VARCHAR(100) NOT NULL , `cantitate` INT NOT NULL DEFAULT '0' , `idfirma` INT NOT NULL , `firma` VARCHAR(50) NOT NULL , `adresafirma` VARCHAR(100) NULL , `modelp` VARCHAR(50) NOT NULL , `stocprodus` INT NOT NULL DEFAULT '0' ,
+CREATE TABLE `magazin`.`firme` (`id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `nume` VARCHAR(100) NOT NULL , `adresa` VARCHAR(200) NOT NULL , `dataadaugare` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB CHARSET=utf8 COLLATE utf8_general_ci;
+SELECT nume, prenume FROM `profesor`;
+SELECT nume AS 'Nume Profesor', prenume FROM `profesor`;
+SELECT SUM(bursa) FROM student;
+SELECT SUM(bursa) FROM student WHERE an=1;
+UPDATE student SET status ='bursier' WHERE bursa IS NOT NULL;
+SELECT an AS An, COUNT(id) AS Nr_studenti FROM `student` ORDER BY `an` ASC;
+SELECT an AS An, COUNT(id) AS Nr_studenti FROM `student` WHERE an = 1 ORDER BY `an` ASC;
+SELECT an AS An, COUNT(id) AS Nr_studenti FROM `student` GROUP BY an;
+SELECT * FROM student WHERE YEAR(data_nastere) >=1996;
+SELECT * FROM `profesor` WHERE grad_didactic ='I' OR grad_didactic ='II';
+SELECT * FROM `cursuri` WHERE an = 2 AND semestru = 2;
+SELECT * FROM `student` WHERE prenume LIKE 'ion%';
+SELECT * FROM `student` WHERE MONTH(data_nastere) = '09' AND DAY(data_nastere) = '21';
+SELECT * FROM `student` WHERE bursa *12 >4000; 
+SELECT * FROM `profesor` WHERE grad_didactic=1 ORDER BY rand() LIMIT 3;
+SELECT * FROM `student` ORDER BY nume ASC LIMIT 5 OFFSET 10;
+SELECT an, COUNT(id) AS nr_student FROM `student` GROUP BY an;
+SELECT an, COUNT(id) AS nr_student FROM `student` GROUP BY an HAVING nr_student >=9;
